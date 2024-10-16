@@ -7,20 +7,25 @@ km1() {
 km2() {
     echo -e "❗️ $@"
 }
-lock_value() {
+function lock_value() {
+    if [[ -z "$1" || -z "$2" ]]; then
+        km2 "参数缺失"
+        return 1
+    fi
     if [[ ! -f "$1" ]]; then
         km2 "命令:($1) 位置不存在跳过..."
         return 1
     fi
-    chown root:root "$1" 2>/dev/null || km2 "变更所有者失败:($1)"
-    chmod 0644 "$1" 2>/dev/null || km2 "变更权限失败:($1)"
+    chown root:root "$1" 2>/dev/null || km2 "变更所有者($1)失败"
+    chmod 0644 "$1" 2>/dev/null || km2 "变更权限($1)失败"
+    echo "尝试读取文件: $1"
     local curval
-    curval=$(cat "$1" 2> /dev/null) || { km2 "读取:($1) 失败"; return 1; }
+    curval=$(<"$1") || { km2 "读取:($1) 失败"; return 1; }
     if [[ "$curval" == "$2" ]]; then
         km1 "命令:$1 参数已存在 ($2) 跳过..."
         return 0
     fi
-    if ! echo -n "$2" > "$1" 2> /dev/null; then
+    if ! printf "%s" "$2" | tee "$1" 2>/dev/null; then
         km2 "写入:($1) -❌-> 命令 $2 参数失败"
         return 1
     fi
