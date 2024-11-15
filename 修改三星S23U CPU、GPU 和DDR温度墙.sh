@@ -39,7 +39,7 @@ lock_trip_point() {
     fi
 }
 for THERMAL_ZONE in /sys/class/thermal/thermal_zone*/type; do
-    if grep -qE "cpu|gpu|ddr" "$THERMAL_ZONE"; then
+    if grep -qE "therm|ram|hardware|cpu|gpu|ddr|pa|sdr|sub|bcl-w|mmw|aoss|nspss|video|mdmss|tz|camera" "$THERMAL_ZONE"; then
         for TRIP_POINT_TEMP in "${THERMAL_ZONE%/*}"/trip_point_*_temp; do
             lock_trip_point "$TRIP_POINT_TEMP"
         done
