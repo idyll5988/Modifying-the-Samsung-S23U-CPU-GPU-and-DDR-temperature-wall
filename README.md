@@ -3,7 +3,7 @@
 
 三星S23U CPU、GPU 和DDR等温度墙
 
-Samsung S23U CPU, GPU and DDR temperature wall
+Samsung S23U CPU, GPU and DDR etc. temperature wall
 
 1. **函数定义**
 
@@ -22,7 +22,7 @@ Samsung S23U CPU, GPU and DDR temperature wall
 
 3. **主逻辑**
 
-   - 遍历系统中的热区文件，查找与 CPU、GPU 或 DDR 相关的热区。
+   - 遍历系统中的热区文件，查找与 CPU、GPU 或 DDR 等相关的热区。
    - 对于每个热区，遍历其温度阈值文件，调用 `lock_trip_point()` 函数进行检查和锁定。
   
 1. **Function definition**
@@ -42,5 +42,5 @@ Samsung S23U CPU, GPU and DDR temperature wall
 
 3. **Main logic**.
 
-   - Iterates through the hot zone file in the system, looking for hot zones associated with the CPU, GPU, or DDR.
+   - Traverses the hot zone file on the system to find hot zones related to CPU, GPU, or DDR, etc.
    - For each hot zone, iterates through its temperature threshold file and calls the `lock_trip_point()` function to check and lock it.
