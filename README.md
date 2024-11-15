@@ -1,7 +1,7 @@
 # Modifying-the-Samsung-S23U-CPU-GPU-and-DDR-temperature-wall
 ![2BF51E618FC3EB6C172EFDA7823798B2](https://github.com/user-attachments/assets/efd59925-711a-42df-aa4d-35cb702d4eea)
 
-三星S23U CPU、GPU 和DDR温度墙
+三星S23U CPU、GPU 和DDR等温度墙
 
 Samsung S23U CPU, GPU and DDR temperature wall
 
